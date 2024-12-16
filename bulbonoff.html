@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>BOLB ON & OFF</h2>
+    <img id="myimage" src="bulboff.png" width="300" height="300">
+    <button type="button" onclick="light(0)" >swich off</button>
+    <button type="button" onclick="light(1)" >swich on</button>
+    <script>
+        function light(sw){ 
+            var pic;
+            if(sw==0){
+                pic = "bulboff.png"
+            }else{
+                pic = "bulbon.png"
+            }
+            document.getElementById("myimage").src = pic;
+        }
+    </script>
+</body>
+</html>
