@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            background-color: pink;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: white;
+            text-align: center;
+            padding: 20px 100px;
+            border-radius: 20px;
+        }
+        button{
+            background-color: pink;
+            padding: 5px 30px;
+            border-radius: 20px;
+        }
+        button:hover{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <div class="box">
+        <h2>swap!!!!</h2>
+         Input A: <input id="num1" type="number"><br><br>
+         Input B: <input id="num2" type="number"><br><br><hr>
+         <button onclick="swap()">swap</button>
+       </div>
+    </div>
+      <script>
+        function swap(){
+            let a = parseInt(document.getElementById("num1").value);
+            let b = parseInt(document.getElementById("num2").value);
+            [a,b] = [b,a];
+            /*let temp = a;
+            a = b;
+            b = temp;*/
+             document.getElementById('num1').value = a;
+             document.getElementById('num2').value = b;
+        }
+
+      </script>
+
+
+</body>
+</html>
