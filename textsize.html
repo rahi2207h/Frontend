@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            color:black;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            height: 100hv;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .box{
+            background-color:grey;
+            text-align: center;
+            padding: 20px 50px;
+            border-radius: 20px;
+            
+        }
+        .text{
+            text-align: center;
+            justify-content: center;
+        }
+        p{
+            align-items: center;
+            text-align: center;
+            font-size: 100%;
+        }
+        button{
+           background-color: white;
+            font-size: 100%;
+            border-radius: 20px;
+            padding: 20px 50px;
+        }
+        button.hover{
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+          <div class="text"><p id="text">Good Morning</p></div>
+          <button onclick="incr()">+</button>
+          <button onclick="dicr()">-</button>
+          <p id="count">0</p>
+        </div>
+    </div>
+    <script>
+        let counter = 0;
+        let a = 16;
+        let b = 2;
+        function incr(){
+            document.getElementById('count').innerHTML = ++counter;
+            document.getElementById('text').style.fontSize = (a + counter * b) + 'px';
+        }
+        function dicr(){
+            document.getElementById('count').innerHTML = --counter;
+            document.getElementById('text').style.fontSize = (a + counter * b) + 'px';
+        }
+
+    </script>
+</body>
+</html>
