@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            background-color: brown;
+            height: 100%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .box{
+           background-color: white;
+           padding: 20px 40px;
+           border-radius: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button{
+            background-color: #4caf50;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            width: 100%;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: background-color .3s ease;
+        }
+        button:hover{
+            background-color: #450494;
+        }
+        #total{
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Tip Calculator</h1>
+            <p>Enter the bill amount and tip percentage to calculate the total.</p>
+            <label for="Bill">Bill amount:</label><br>
+            <input type="number" id="bill"><br>
+            <label for="tip">Tip percentage:</label><br>
+            <input type="number" id="tip"><br>
+            <button onclick="calculateTotal()" id="calculate">Calculator</button><br>
+            <label for="total">Total:</label>
+            <span id="total">0</span>
+        </div>
+    </div>
+    <script>
+       function calculateTotal() {
+            const billInput = document.getElementById('bill');
+            const tipInput = document.getElementById('tip');
+            const totalSpan = document.getElementById('total');
+
+            const billValue = parseFloat(billInput.value);
+            const tipValue = parseFloat(tipInput.value);
+
+            if (isNaN(billValue) || billValue <= 0) {
+                alert("Please enter a valid bill amount");
+                return;
+            }
+
+            if (isNaN(tipValue) || tipValue < 0) {
+                alert("Please enter a valid tip percentage");
+                return;
+            }
+
+            const totalValue = billValue * (1 + tipValue / 100);
+            totalSpan.innerHTML = "Rs. " + totalValue.toFixed(2);
+        }
+    </script>
+</body>
+</html>
