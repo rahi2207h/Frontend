@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            height: 100%;
+            background-color: white;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .box{
+           background-color: pink;
+           padding: 20px 40px;
+           border-radius: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 10px 0;
+            width: 100%;
+        }
+    </style>
+       
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Loan Calculator $</h1>
+            <label for="amount">Loan Amount $</label><br>
+            <input type="number" id="amount"><br>
+            <label for="rate">Interest Rate %</label><br>
+            <input type="number" id="rate"><br>
+            <label for="months">Months to pay</label><br>
+            <input type="number" id="months"><br><br>
+            <p class="payment">Monthly Payment: <span id="payment">0</span></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('amount').addEventListener('input', calculatePayment);
+        document.getElementById('rate').addEventListener('input', calculatePayment);
+        document.getElementById('months').addEventListener('input', calculatePayment);
+
+        function calculatePayment() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const months = parseInt(document.getElementById('months').value);
+
+            if (isNaN(amount) || isNaN(rate) || isNaN(months) || months <= 0) {
+                document.getElementById('payment').innerText = '0';
+                return;
+            }
+
+            const payment = (amount * rate) / (1 - Math.pow(1 + rate, -months));
+            document.getElementById('payment').innerText = payment.toFixed(2);
+        }
+    </script>
+</body>
+</html>
